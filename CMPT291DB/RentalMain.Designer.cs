@@ -1,6 +1,6 @@
 ﻿namespace CMPT291DB
 {
-    partial class CarsScreen
+    partial class RentalMain
     {
         /// <summary>
         ///  Required designer variable.

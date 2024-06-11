@@ -2,13 +2,13 @@ using System.Data.SqlClient;
 
 namespace CMPT291DB
 {
-    public partial class CarsScreen : Form
+    public partial class RentalMain : Form
     {
         public SqlConnection sqlConnection;
         public SqlCommand sqlCommand;
         public SqlDataReader sqlDataReader;
 
-        public CarsScreen()
+        public RentalMain()
         {
             // Connecting to personal database on my device.
             // TODO: Change server and database to match your SQL information.
