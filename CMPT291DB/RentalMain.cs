@@ -80,7 +80,7 @@ namespace CMPT291DB
             //test query
             try
             {
-                sqlCommand.CommandText = "SELECT * FROM Cars WHERE IsAvailable = 1"; // Example query
+                sqlCommand.CommandText = "SELECT * FROM Car WHERE BID = 1"; // Example query
                 sqlDataReader = sqlCommand.ExecuteReader();
                 var dataTable = new DataTable();
                 dataTable.Load(sqlDataReader);
