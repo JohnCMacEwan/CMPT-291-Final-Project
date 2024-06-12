@@ -23,13 +23,16 @@ namespace CMPT291DB
         private DateTime pickupDate;
         private DateTime dropoffDate;
         private int pickupBID;
+        private int dropoffBID;
         private decimal price;
 
-        public RentalPicker(DateTime pickup, DateTime dropoff, int BID)
+        public RentalPicker(DateTime pickup, DateTime dropoff, int pickupBID, int dropoffBID)
         {
             pickupDate = pickup;
             dropoffDate = dropoff;
-            pickupBID = BID;
+            this.pickupBID = pickupBID;
+            this.dropoffBID = dropoffBID;
+
             // Connecting to personal database on my device.
             // TODO: Change server and database to match your SQL information.
             String connectionString = "Server = LAPTOP-UFO08P4O; Database = CMPT291_Project; Trusted_Connection = yes;";
@@ -72,8 +75,10 @@ namespace CMPT291DB
 
             try
             {
-                sqlCommand.CommandText = "select C.VIN, C.Brand, C.Make, CT.Daily, CT.Weekly, CT.Monthly, R.PickupDate, R.DropoffDate, C.BID, B.BID from Car C, CarType CT, Rented R, Branch B" +
-                    "\r\nwhere C.CarType = CT.CarType and C.VIN = R.VIN and B.BID = " + BID.ToString() + " and C.BID = B.BID and R.VIN not in (select VIN from Rented where ('" + pickupDate.ToString() + "' BETWEEN PickupDate and DropoffDate) and ('" + dropoffDate.ToString() + "' BETWEEN PickupDate and DropoffDate))";
+                sqlCommand.CommandText = "select * from Car C, CarType CT" +
+                "\nwhere C.Type = CT.Type and C.BID = " + pickupBID + " and C.VIN not in" +
+                "\n(select VIN from Rented R" +
+                "\nwhere('" + pickup.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate) and ('" + dropoff.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate))";
 
                 sqlDataReader = sqlCommand.ExecuteReader();
 
@@ -100,8 +105,8 @@ namespace CMPT291DB
                 MessageBox.Show(e.ToString(), "Error");
             }
 
-            if (BID == -1) { BID = 0; };
-            SearchingTextLabel.Text = "Searching for cars in " + branches[BID] + " between " + pickup.ToString("dd MMMM, yyyy") + " and " + dropoff.ToString("dd MMMM, yyyy");
+            if (pickupBID == -1) { pickupBID = 1; };
+            SearchingTextLabel.Text = "Searching for cars in " + branches[pickupBID] + " between " + pickup.ToString("dd MMMM, yyyy") + " and " + dropoff.ToString("dd MMMM, yyyy");
         }
 
         public void RentalCancelButton_Click(object sender, EventArgs e)
@@ -113,7 +118,7 @@ namespace CMPT291DB
         {
             try
             {
-                sqlCommand.CommandText = "insert into Rented values ('" + pickupDate.ToString() + "', " + pickupBID.ToString() + ", '" + dropoffDate.ToString() + "', NULL, '" + selected + "', 0, NULL, " + price.ToString() + ")";
+                sqlCommand.CommandText = "insert into Rented values ('" + pickupDate.ToString() + "', " + pickupBID + ", '" + dropoffDate.ToString() + "', " + dropoffBID + ", '" + selected + "', 1, 100, " + price.ToString() + ")";
                 sqlCommand.ExecuteNonQuery();
             }
             catch (Exception e1)

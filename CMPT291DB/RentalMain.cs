@@ -36,19 +36,22 @@ namespace CMPT291DB
             try
             {
                 // Query database to get all branch names from the branch table
-                sqlCommand.CommandText = "select BranchName from Branch";
+                sqlCommand.CommandText = "select BranchName from Branch order by BID";
 
                 // Read the query and insert each value into the branch selector
                 sqlDataReader = sqlCommand.ExecuteReader();
 
-                BranchSelector.Items.Clear();
+                PickupBranchSelector.Items.Clear();
+                DropoffBranchSelector.Items.Clear();
 
                 while (sqlDataReader.Read())
                 {
-                    BranchSelector.Items.Add(sqlDataReader["BranchName"].ToString());
+                    PickupBranchSelector.Items.Add(sqlDataReader["BranchName"].ToString());
+                    DropoffBranchSelector.Items.Add(sqlDataReader["BranchName"].ToString());
                 }
 
-                BranchSelector.SelectedIndex = 0;
+                PickupBranchSelector.SelectedIndex = 0;
+                DropoffBranchSelector.SelectedIndex = 0;
 
                 sqlDataReader.Close();
             }
@@ -69,49 +72,11 @@ namespace CMPT291DB
                 MessageBox.Show("Please enter a valid pickup and dropoff date", "Error");
                 return;
             }
-            int BID = BranchSelector.SelectedIndex;
-            RentalPicker rentalPickerForm = new RentalPicker(pickup, dropoff, BID);
-            rentalPickerForm.Text = BranchSelector.Text + "'s Available Cars";
+            int pickupBID = PickupBranchSelector.SelectedIndex + 1;
+            int dropoffBID = DropoffBranchSelector.SelectedIndex + 1;
+            RentalPicker rentalPickerForm = new RentalPicker(pickup, dropoff, pickupBID, dropoffBID);
+            rentalPickerForm.Text = PickupBranchSelector.Text + "'s Available Cars";
             rentalPickerForm.Show();
-        }
-        // Event handlers for report buttons
-        private void buttonReport1_Click(object sender, EventArgs e)
-        {
-            //test query
-            try
-            {
-                sqlCommand.CommandText = "SELECT * FROM Car WHERE BID = 1"; // Example query
-                sqlDataReader = sqlCommand.ExecuteReader();
-                var dataTable = new DataTable();
-                dataTable.Load(sqlDataReader);
-                dataGridViewReports.DataSource = dataTable;
-                sqlDataReader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
-            }
-           
-        }
-
-        private void buttonReport2_Click(object sender, EventArgs e)
-        {
-            // SQL query to display Report 2
-        }
-
-        private void buttonReport3_Click(object sender, EventArgs e)
-        {
-            //SQL query to and display Report 3
-        }
-
-        private void buttonReport4_Click(object sender, EventArgs e)
-        {
-            //SQL query to and display Report 4
-        }
-
-        private void buttonReport5_Click(object sender, EventArgs e)
-        {
-            // SQL query to and display Report 5
         }
     }
 }

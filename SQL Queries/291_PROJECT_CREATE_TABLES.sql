@@ -1,5 +1,12 @@
-USE [291_PROJECT];
+USE [CMPT291_Project];
 GO
+
+DROP TABLE Rented
+DROP TABLE Employee
+DROP TABLE Customer
+DROP TABLE Car
+DROP TABLE CarType
+DROP TABLE Branch
 
 CREATE TABLE Customer(
     CID INT IDENTITY(1, 1) PRIMARY KEY,
@@ -18,18 +25,6 @@ CREATE TABLE CarType(
 	Monthly MONEY NOT NULL
 );
 
-CREATE TABLE Car(
-	VIN VARCHAR(17) PRIMARY KEY, --We will assume all VINs are 17 characters long
-	Brand VARCHAR(50) NOT NULL,
-	Make VARCHAR(50) NOT NULL,
-	Availability BIT NOT NULL,
-	LicensePlate VARCHAR(6) NOT NULL UNIQUE, -- We will assume they are Canadian license plate so it can have 6 max characters
-	Type VARCHAR(50) NOT NULL,
-	FOREIGN KEY (Type) REFERENCES CarType(Type) ON DELETE CASCADE ON UPDATE CASCADE,
-	CONSTRAINT CK_Car_VIN CHECK (LEN(VIN) = 17),
-	CONSTRAINT CK_Car_LicensePlate CHECK (LEN(LicensePlate) <= 6)
-);
-
 CREATE TABLE Branch(
 	 BID INT IDENTITY(1, 1) PRIMARY KEY,
 	 BranchName VARCHAR(50) NOT NULL,
@@ -38,6 +33,20 @@ CREATE TABLE Branch(
 	 Province VARCHAR(50) NOT NULL,
 	 Country VARCHAR(50) NOT NULL,
 	 CONSTRAINT UQ_Branch UNIQUE (BranchName, Street, City, Province, Country)
+);
+
+CREATE TABLE Car(
+	VIN VARCHAR(17) PRIMARY KEY, --We will assume all VINs are 17 characters long
+	Brand VARCHAR(50) NOT NULL,
+	Make VARCHAR(50) NOT NULL,
+	Availability BIT NOT NULL,
+	LicensePlate VARCHAR(6) NOT NULL UNIQUE, -- We will assume they are Canadian license plate so it can have 6 max characters
+	Type VARCHAR(50) NOT NULL,
+	BID int NOT NULL,
+	FOREIGN KEY (Type) REFERENCES CarType(Type) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (BID) REFERENCES Branch(BID),
+	CONSTRAINT CK_Car_VIN CHECK (LEN(VIN) = 17),
+	CONSTRAINT CK_Car_LicensePlate CHECK (LEN(LicensePlate) <= 6)
 );
 
 CREATE TABLE Employee(

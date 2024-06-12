@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             SearchingTextLabel = new Label();
             CarTable = new DataGridView();
             VIN = new DataGridViewTextBoxColumn();
@@ -43,9 +45,11 @@
             // SearchingTextLabel
             // 
             SearchingTextLabel.AutoSize = true;
-            SearchingTextLabel.Location = new Point(12, 9);
+            SearchingTextLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SearchingTextLabel.ForeColor = Color.White;
+            SearchingTextLabel.Location = new Point(12, 21);
             SearchingTextLabel.Name = "SearchingTextLabel";
-            SearchingTextLabel.Size = new Size(407, 20);
+            SearchingTextLabel.Size = new Size(494, 23);
             SearchingTextLabel.TabIndex = 0;
             SearchingTextLabel.Text = "Searching for cars in BRANCH between PICKUP and RETURN";
             // 
@@ -53,9 +57,28 @@
             // 
             CarTable.AllowUserToAddRows = false;
             CarTable.AllowUserToDeleteRows = false;
+            CarTable.BackgroundColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(61, 64, 73);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            CarTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             CarTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CarTable.Columns.AddRange(new DataGridViewColumn[] { VIN, Brand, Make, Price });
-            CarTable.Location = new Point(12, 32);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(61, 64, 73);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            CarTable.DefaultCellStyle = dataGridViewCellStyle2;
+            CarTable.EnableHeadersVisualStyles = false;
+            CarTable.GridColor = Color.Black;
+            CarTable.Location = new Point(12, 47);
             CarTable.Name = "CarTable";
             CarTable.ReadOnly = true;
             CarTable.RowHeadersWidth = 51;
@@ -97,40 +120,51 @@
             // 
             // RentalPickerSelectionLabel
             // 
-            RentalPickerSelectionLabel.AutoSize = true;
             RentalPickerSelectionLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RentalPickerSelectionLabel.Location = new Point(12, 303);
+            RentalPickerSelectionLabel.ForeColor = Color.White;
+            RentalPickerSelectionLabel.Location = new Point(12, 315);
             RentalPickerSelectionLabel.Name = "RentalPickerSelectionLabel";
-            RentalPickerSelectionLabel.Size = new Size(337, 28);
+            RentalPickerSelectionLabel.Size = new Size(553, 50);
             RentalPickerSelectionLabel.TabIndex = 3;
             RentalPickerSelectionLabel.Text = "Select a car you would like to rent";
             RentalPickerSelectionLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // RentalCancelButton
             // 
+            RentalCancelButton.BackColor = Color.FromArgb(39, 157, 86);
+            RentalCancelButton.FlatAppearance.BorderColor = Color.Black;
+            RentalCancelButton.FlatStyle = FlatStyle.Flat;
+            RentalCancelButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RentalCancelButton.ForeColor = Color.White;
             RentalCancelButton.Location = new Point(96, 378);
             RentalCancelButton.Name = "RentalCancelButton";
             RentalCancelButton.Size = new Size(132, 44);
             RentalCancelButton.TabIndex = 4;
             RentalCancelButton.Text = "Cancel";
-            RentalCancelButton.UseVisualStyleBackColor = true;
+            RentalCancelButton.UseVisualStyleBackColor = false;
             RentalCancelButton.Click += RentalCancelButton_Click;
             // 
             // RentalConfirmButton
             // 
+            RentalConfirmButton.BackColor = Color.FromArgb(39, 157, 86);
             RentalConfirmButton.Enabled = false;
+            RentalConfirmButton.FlatAppearance.BorderColor = Color.Black;
+            RentalConfirmButton.FlatStyle = FlatStyle.Flat;
+            RentalConfirmButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RentalConfirmButton.ForeColor = Color.White;
             RentalConfirmButton.Location = new Point(345, 378);
             RentalConfirmButton.Name = "RentalConfirmButton";
             RentalConfirmButton.Size = new Size(132, 44);
             RentalConfirmButton.TabIndex = 5;
             RentalConfirmButton.Text = "Confirm";
-            RentalConfirmButton.UseVisualStyleBackColor = true;
+            RentalConfirmButton.UseVisualStyleBackColor = false;
             RentalConfirmButton.Click += RentalConfirmButton_Click;
             // 
             // RentalPicker
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(51, 54, 63);
             ClientSize = new Size(579, 450);
             Controls.Add(RentalConfirmButton);
             Controls.Add(RentalCancelButton);

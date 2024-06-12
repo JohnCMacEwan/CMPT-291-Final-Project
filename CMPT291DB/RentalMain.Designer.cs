@@ -28,173 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PickupDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ReturnDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.BranchSelector = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.RentalSearchButton = new System.Windows.Forms.Button();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.buttonReport1 = new System.Windows.Forms.Button();
-            this.buttonReport2 = new System.Windows.Forms.Button();
-            this.buttonReport3 = new System.Windows.Forms.Button();
-            this.buttonReport4 = new System.Windows.Forms.Button();
-            this.buttonReport5 = new System.Windows.Forms.Button();
-            this.dataGridViewReports = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).BeginInit();
-            this.SuspendLayout();
+            PickupDatePicker = new DateTimePicker();
+            label1 = new Label();
+            label2 = new Label();
+            ReturnDatePicker = new DateTimePicker();
+            PickupBranchSelector = new ComboBox();
+            label3 = new Label();
+            RentalSearchButton = new Button();
+            fileSystemWatcher1 = new FileSystemWatcher();
+            DropoffBranchSelector = new ComboBox();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
+            SuspendLayout();
             // 
             // PickupDatePicker
             // 
-            this.PickupDatePicker.Location = new System.Drawing.Point(12, 39);
-            this.PickupDatePicker.Name = "PickupDatePicker";
-            this.PickupDatePicker.Size = new System.Drawing.Size(250, 27);
-            this.PickupDatePicker.TabIndex = 0;
+            PickupDatePicker.Location = new Point(12, 39);
+            PickupDatePicker.Name = "PickupDatePicker";
+            PickupDatePicker.Size = new Size(250, 27);
+            PickupDatePicker.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Pickup Date";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 28);
+            label1.TabIndex = 1;
+            label1.Text = "Pickup Date";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Return Date";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(11, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(127, 28);
+            label2.TabIndex = 3;
+            label2.Text = "Return Date";
             // 
             // ReturnDatePicker
             // 
-            this.ReturnDatePicker.Location = new System.Drawing.Point(12, 110);
-            this.ReturnDatePicker.Name = "ReturnDatePicker";
-            this.ReturnDatePicker.Size = new System.Drawing.Size(250, 27);
-            this.ReturnDatePicker.TabIndex = 2;
+            ReturnDatePicker.Location = new Point(12, 110);
+            ReturnDatePicker.Name = "ReturnDatePicker";
+            ReturnDatePicker.Size = new Size(250, 27);
+            ReturnDatePicker.TabIndex = 2;
             // 
-            // BranchSelector
+            // PickupBranchSelector
             // 
-            this.BranchSelector.FormattingEnabled = true;
-            this.BranchSelector.Location = new System.Drawing.Point(12, 181);
-            this.BranchSelector.Name = "BranchSelector";
-            this.BranchSelector.Size = new System.Drawing.Size(151, 28);
-            this.BranchSelector.TabIndex = 4;
+            PickupBranchSelector.FormattingEnabled = true;
+            PickupBranchSelector.Location = new Point(12, 181);
+            PickupBranchSelector.Name = "PickupBranchSelector";
+            PickupBranchSelector.Size = new Size(151, 28);
+            PickupBranchSelector.TabIndex = 4;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Branch";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(12, 150);
+            label3.Name = "label3";
+            label3.Size = new Size(147, 28);
+            label3.TabIndex = 5;
+            label3.Text = "Pickup Branch";
             // 
             // RentalSearchButton
             // 
-            this.RentalSearchButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RentalSearchButton.Location = new System.Drawing.Point(12, 221);
-            this.RentalSearchButton.Name = "RentalSearchButton";
-            this.RentalSearchButton.Size = new System.Drawing.Size(285, 64);
-            this.RentalSearchButton.TabIndex = 6;
-            this.RentalSearchButton.Text = "Search";
-            this.RentalSearchButton.UseVisualStyleBackColor = true;
-            this.RentalSearchButton.Click += new System.EventHandler(this.RentalSearchButton_Click);
+            RentalSearchButton.BackColor = Color.FromArgb(39, 157, 86);
+            RentalSearchButton.FlatAppearance.BorderColor = Color.Black;
+            RentalSearchButton.FlatStyle = FlatStyle.Flat;
+            RentalSearchButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            RentalSearchButton.ForeColor = Color.White;
+            RentalSearchButton.Location = new Point(11, 299);
+            RentalSearchButton.Name = "RentalSearchButton";
+            RentalSearchButton.Size = new Size(285, 64);
+            RentalSearchButton.TabIndex = 6;
+            RentalSearchButton.Text = "Search";
+            RentalSearchButton.UseVisualStyleBackColor = false;
+            RentalSearchButton.Click += RentalSearchButton_Click;
             // 
             // fileSystemWatcher1
             // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
+            fileSystemWatcher1.EnableRaisingEvents = true;
+            fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // buttonReport1
+            // DropoffBranchSelector
             // 
-            this.buttonReport1.Location = new System.Drawing.Point(330, 221);
-            this.buttonReport1.Name = "buttonReport1";
-            this.buttonReport1.Size = new System.Drawing.Size(100, 40);
-            this.buttonReport1.TabIndex = 7;
-            this.buttonReport1.Text = "Report 1";
-            this.buttonReport1.UseVisualStyleBackColor = true;
-            this.buttonReport1.Click += new System.EventHandler(this.buttonReport1_Click);
+            DropoffBranchSelector.FormattingEnabled = true;
+            DropoffBranchSelector.Location = new Point(12, 252);
+            DropoffBranchSelector.Name = "DropoffBranchSelector";
+            DropoffBranchSelector.Size = new Size(151, 28);
+            DropoffBranchSelector.TabIndex = 7;
             // 
-            // buttonReport2
+            // label4
             // 
-            this.buttonReport2.Location = new System.Drawing.Point(436, 221);
-            this.buttonReport2.Name = "buttonReport2";
-            this.buttonReport2.Size = new System.Drawing.Size(100, 40);
-            this.buttonReport2.TabIndex = 8;
-            this.buttonReport2.Text = "Report 2";
-            this.buttonReport2.UseVisualStyleBackColor = true;
-            this.buttonReport2.Click += new System.EventHandler(this.buttonReport2_Click);
-            // 
-            // buttonReport3
-            // 
-            this.buttonReport3.Location = new System.Drawing.Point(542, 221);
-            this.buttonReport3.Name = "buttonReport3";
-            this.buttonReport3.Size = new System.Drawing.Size(100, 40);
-            this.buttonReport3.TabIndex = 9;
-            this.buttonReport3.Text = "Report 3";
-            this.buttonReport3.UseVisualStyleBackColor = true;
-            this.buttonReport3.Click += new System.EventHandler(this.buttonReport3_Click);
-            // 
-            // buttonReport4
-            // 
-            this.buttonReport4.Location = new System.Drawing.Point(648, 221);
-            this.buttonReport4.Name = "buttonReport4";
-            this.buttonReport4.Size = new System.Drawing.Size(100, 40);
-            this.buttonReport4.TabIndex = 10;
-            this.buttonReport4.Text = "Report 4";
-            this.buttonReport4.UseVisualStyleBackColor = true;
-            this.buttonReport4.Click += new System.EventHandler(this.buttonReport4_Click);
-            // 
-            // buttonReport5
-            // 
-            this.buttonReport5.Location = new System.Drawing.Point(754, 221);
-            this.buttonReport5.Name = "buttonReport5";
-            this.buttonReport5.Size = new System.Drawing.Size(100, 40);
-            this.buttonReport5.TabIndex = 11;
-            this.buttonReport5.Text = "Report 5";
-            this.buttonReport5.UseVisualStyleBackColor = true;
-            this.buttonReport5.Click += new System.EventHandler(this.buttonReport5_Click);
-            // 
-            // dataGridViewReports
-            // 
-            this.dataGridViewReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReports.Location = new System.Drawing.Point(330, 12);
-            this.dataGridViewReports.Name = "dataGridViewReports";
-            this.dataGridViewReports.RowHeadersWidth = 51;
-            this.dataGridViewReports.RowTemplate.Height = 29;
-            this.dataGridViewReports.Size = new System.Drawing.Size(524, 200);
-            this.dataGridViewReports.TabIndex = 12;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(12, 221);
+            label4.Name = "label4";
+            label4.Size = new Size(159, 28);
+            label4.TabIndex = 8;
+            label4.Text = "Dropoff Branch";
             // 
             // RentalMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 297);
-            this.Controls.Add(this.dataGridViewReports);
-            this.Controls.Add(this.buttonReport5);
-            this.Controls.Add(this.buttonReport4);
-            this.Controls.Add(this.buttonReport3);
-            this.Controls.Add(this.buttonReport2);
-            this.Controls.Add(this.buttonReport1);
-            this.Controls.Add(this.RentalSearchButton);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.BranchSelector);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ReturnDatePicker);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.PickupDatePicker);
-            this.Name = "RentalMain";
-            this.Text = "Rental";
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(51, 54, 63);
+            ClientSize = new Size(312, 375);
+            Controls.Add(label4);
+            Controls.Add(DropoffBranchSelector);
+            Controls.Add(RentalSearchButton);
+            Controls.Add(label3);
+            Controls.Add(PickupBranchSelector);
+            Controls.Add(label2);
+            Controls.Add(ReturnDatePicker);
+            Controls.Add(label1);
+            Controls.Add(PickupDatePicker);
+            Name = "RentalMain";
+            Text = "Rental";
+            ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -203,16 +163,12 @@
         private Label label1;
         private Label label2;
         private DateTimePicker ReturnDatePicker;
-        private ComboBox BranchSelector;
+        private ComboBox PickupBranchSelector;
         private Label label3;
         private Button RentalSearchButton;
         private FileSystemWatcher fileSystemWatcher1;
-        private Button buttonReport1;
-        private Button buttonReport2;
-        private Button buttonReport3;
-        private Button buttonReport4;
-        private Button buttonReport5;
-        private DataGridView dataGridViewReports;
+        private Label label4;
+        private ComboBox DropoffBranchSelector;
     }
 }
 

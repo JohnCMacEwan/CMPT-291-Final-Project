@@ -34,34 +34,40 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(276, 20);
+            label1.Size = new Size(311, 27);
             label1.TabIndex = 0;
             label1.Text = "Success! Your rental has been confirmed.";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // RentalSuccessFinishButton
             // 
-            RentalSuccessFinishButton.Location = new Point(101, 32);
+            RentalSuccessFinishButton.BackColor = Color.FromArgb(39, 157, 86);
+            RentalSuccessFinishButton.FlatAppearance.BorderColor = Color.Black;
+            RentalSuccessFinishButton.FlatStyle = FlatStyle.Flat;
+            RentalSuccessFinishButton.ForeColor = Color.White;
+            RentalSuccessFinishButton.Location = new Point(118, 46);
             RentalSuccessFinishButton.Name = "RentalSuccessFinishButton";
             RentalSuccessFinishButton.Size = new Size(94, 29);
             RentalSuccessFinishButton.TabIndex = 1;
             RentalSuccessFinishButton.Text = "Finish";
-            RentalSuccessFinishButton.UseVisualStyleBackColor = true;
+            RentalSuccessFinishButton.UseVisualStyleBackColor = false;
             RentalSuccessFinishButton.Click += RentalSuccessFinishButton_Click;
             // 
             // RentalSuccess
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(299, 69);
+            BackColor = Color.FromArgb(51, 54, 63);
+            ClientSize = new Size(335, 87);
             Controls.Add(RentalSuccessFinishButton);
             Controls.Add(label1);
             Name = "RentalSuccess";
             Text = "Success";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
