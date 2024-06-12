@@ -133,6 +133,7 @@ namespace CMPT291DB
         private void CarTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            DataGridViewRow rowSelected = CarTable.Rows[e.RowIndex];
             selected = CarTable.Rows[e.RowIndex].Cells[0].Value.ToString();
             price = decimal.Parse(CarTable.Rows[e.RowIndex].Cells[3].Value.ToString());
             RentalPickerSelectionLabel.Text = selected;

@@ -30,7 +30,7 @@ namespace CMPT291DB
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=291_PROJECT;" + "connection timeout =30"))
+                using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=CMPT291_Project;" + "connection timeout =30"))
                 {
                     if (cn.State == ConnectionState.Closed)
                         cn.Open();
@@ -187,16 +187,17 @@ namespace CMPT291DB
                 
                 addForm.Show();
                 addForm.Location = new Point(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y - 420);
+                Random randomNum = new Random();
                 addButton.Click += (s, ev) =>
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=291_PROJECT;" + "connection timeout =30"))
+                        using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=CMPT291_Project;" + "connection timeout =30"))
                         {
                             if (cn.State == ConnectionState.Closed)
                                 cn.Open();
 
-                            string insertQuery = "INSERT INTO Car (VIN, Brand, Make, Availability, LicensePlate, Type) VALUES (@VIN, @Brand, @Make, @Availability, @LicensePlate, @Type)";
+                            string insertQuery = "INSERT INTO Car (VIN, Brand, Make, Availability, LicensePlate, Type, BID) VALUES (@VIN, @Brand, @Make, @Availability, @LicensePlate, @Type, @BID)";
 
                             using (SqlCommand cmd = new SqlCommand(insertQuery, cn))
                             {
@@ -206,6 +207,7 @@ namespace CMPT291DB
                                 cmd.Parameters.AddWithValue("@Availability", availabilityCheck.Checked);
                                 cmd.Parameters.AddWithValue("@LicensePlate", licenseTextBox.Text);
                                 cmd.Parameters.AddWithValue("@Type", carTypeTextBox.Text);
+                                cmd.Parameters.AddWithValue("@BID", randomNum.Next(1, 5));
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -389,7 +391,7 @@ namespace CMPT291DB
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=291_PROJECT;" + "connection timeout =30"))
+                        using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=CMPT291_Project;" + "connection timeout =30"))
                         {
                             if (cn.State == ConnectionState.Closed)
                                 cn.Open();
@@ -501,7 +503,7 @@ namespace CMPT291DB
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=291_PROJECT;" + "connection timeout =30"))
+                using (SqlConnection cn = new SqlConnection("user id = 291_Admin;" + "password=291ProjectAdmin;" + "server=localhost;" + "Trusted_Connection=yes;" + "database=CMPT291_Project;" + "connection timeout =30"))
                 {
                     if (cn.State == ConnectionState.Closed)
                         cn.Open();

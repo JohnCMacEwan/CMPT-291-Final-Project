@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             SearchingTextLabel = new Label();
             CarTable = new DataGridView();
             VIN = new DataGridViewTextBoxColumn();
@@ -44,12 +45,11 @@
             // 
             // SearchingTextLabel
             // 
-            SearchingTextLabel.AutoSize = true;
             SearchingTextLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SearchingTextLabel.ForeColor = Color.White;
-            SearchingTextLabel.Location = new Point(12, 21);
+            SearchingTextLabel.Location = new Point(12, 20);
             SearchingTextLabel.Name = "SearchingTextLabel";
-            SearchingTextLabel.Size = new Size(494, 23);
+            SearchingTextLabel.Size = new Size(612, 23);
             SearchingTextLabel.TabIndex = 0;
             SearchingTextLabel.Text = "Searching for cars in BRANCH between PICKUP and RETURN";
             // 
@@ -57,13 +57,16 @@
             // 
             CarTable.AllowUserToAddRows = false;
             CarTable.AllowUserToDeleteRows = false;
+            CarTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CarTable.BackgroundColor = Color.FromArgb(41, 44, 53);
+            CarTable.BorderStyle = BorderStyle.None;
+            CarTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 53);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(61, 64, 73);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             CarTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             CarTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -78,11 +81,22 @@
             CarTable.DefaultCellStyle = dataGridViewCellStyle2;
             CarTable.EnableHeadersVisualStyles = false;
             CarTable.GridColor = Color.Black;
-            CarTable.Location = new Point(12, 47);
+            CarTable.Location = new Point(40, 59);
+            CarTable.MultiSelect = false;
             CarTable.Name = "CarTable";
             CarTable.ReadOnly = true;
+            CarTable.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(41, 44, 53);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(61, 64, 73);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            CarTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             CarTable.RowHeadersWidth = 51;
-            CarTable.Size = new Size(553, 253);
+            CarTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CarTable.Size = new Size(552, 253);
             CarTable.TabIndex = 1;
             CarTable.CellClick += CarTable_CellClick;
             // 
@@ -124,7 +138,7 @@
             RentalPickerSelectionLabel.ForeColor = Color.White;
             RentalPickerSelectionLabel.Location = new Point(12, 315);
             RentalPickerSelectionLabel.Name = "RentalPickerSelectionLabel";
-            RentalPickerSelectionLabel.Size = new Size(553, 50);
+            RentalPickerSelectionLabel.Size = new Size(612, 50);
             RentalPickerSelectionLabel.TabIndex = 3;
             RentalPickerSelectionLabel.Text = "Select a car you would like to rent";
             RentalPickerSelectionLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -165,7 +179,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 54, 63);
-            ClientSize = new Size(579, 450);
+            ClientSize = new Size(636, 450);
             Controls.Add(RentalConfirmButton);
             Controls.Add(RentalCancelButton);
             Controls.Add(RentalPickerSelectionLabel);
@@ -174,7 +188,6 @@
             Name = "RentalPicker";
             ((System.ComponentModel.ISupportInitialize)CarTable).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
