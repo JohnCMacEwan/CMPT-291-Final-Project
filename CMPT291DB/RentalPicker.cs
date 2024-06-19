@@ -83,12 +83,14 @@ namespace CMPT291DB
                 sqlDataReader = sqlCommand.ExecuteReader();
 
                 CarTable.Rows.Clear();
+
+                int totalDays = (dropoff.Date - pickup.Date).Days + 1; // +1 to include start date
+
                 while (sqlDataReader.Read())
                 {
                     decimal totalPrice = 0;
 
                     // Calculate total price based on the car type's monthly, weekly and daily prices.
-                    int totalDays = (dropoff - pickup).Days + 2;
                     totalPrice = (totalDays / 30) * decimal.Parse(sqlDataReader["Monthly"].ToString());
                     totalDays = totalDays % 30;
                     totalPrice += (totalDays / 7) * decimal.Parse(sqlDataReader["Weekly"].ToString());
