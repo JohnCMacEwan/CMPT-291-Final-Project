@@ -15,7 +15,7 @@ namespace CMPT291DB
     public partial class ReportsMain : Form
     {
 
-        private readonly string connectionString = "Server = SANJAY-R6; Database = CMPT291_Project; Trusted_Connection = yes;";
+        private readonly string connectionString = "Server = LAPTOP-UFO08P4O; Database = CMPT291_Project; Trusted_Connection = yes;";
 
         public ReportsMain()
         {

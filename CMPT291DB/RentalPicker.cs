@@ -78,7 +78,7 @@ namespace CMPT291DB
                 sqlCommand.CommandText = "select * from Car C, CarType CT" +
                 "\nwhere C.Type = CT.Type and C.BID = " + pickupBID + " and C.VIN not in" +
                 "\n(select VIN from Rented R" +
-                "\nwhere('" + pickup.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate) and ('" + dropoff.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate))";
+                "\nwhere('" + pickup.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate) OR ('" + dropoff.ToString() + "' BETWEEN R.PickupDate and R.DropoffDate))";
 
                 sqlDataReader = sqlCommand.ExecuteReader();
 
